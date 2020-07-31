@@ -36,7 +36,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        if (Auth::check() && Auth::user()->is_admin == 1) {
+        if (Auth::check() && Auth::user()->role == 1) {
             $this->redirectTo = route('admin.home');
         }
         $this->middleware('guest')->except('logout');
