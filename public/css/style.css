@@ -1,0 +1,27 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.sub-menu {
+  display: none;
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+}
+
+.content__wrapper {
+  display: flex;
+}
+
+.getting__img {
+  width: 50%;
+}
+
+.getting__desc {
+  width: 50%;
+}
+
