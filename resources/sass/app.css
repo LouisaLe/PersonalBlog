@@ -78,8 +78,7 @@ a:hover {
 }
 
 .section {
-  min-height: 100vh;
-  text-align: center;
+  position: relative;
 }
 
 .section__home {
@@ -293,5 +292,23 @@ a:hover {
 
 .main-panel__wrapper {
   background-color: #ffffff;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.add-new__wrapper {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  padding: 30px;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.add-new__wrapper.active {
+  left: 0;
 }
 /*# sourceMappingURL=app.css.map */

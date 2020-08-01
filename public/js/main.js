@@ -1,41 +1,69 @@
-$(document).ready(function(){
-  $('.menu__item').on('click', function() {
-      let ele = $(this);
-      let selectedID = ele.children('a').attr('id');
+$(document).ready(function () {
+    $("#dtBasicExample").DataTable();
+    $(".dataTables_length").addClass("bs-select");
 
-      if (!ele.hasClass('active')) {
-        ele.parent().find('.active').removeClass('active');
-        ele.addClass('active');
-      } else {
-        return;
-      }
+    // Init summer note
+    $("#summernote").summernote();
+    // End summer note
 
-      $('html, body').animate({
-        scrollTop: $("#section_" + selectedID).offset().top
-      }, 500);
-      
-  });
+    $(".menu__item").on("click", function () {
+        let ele = $(this);
+        let selectedID = ele.children("a").attr("id");
 
-  $('#top').on('click', function(){
-    $('html, body').animate({
-      scrollTop: 0
-    }, 500);
-  });
+        if (!ele.hasClass("active")) {
+            ele.parent().find(".active").removeClass("active");
+            ele.addClass("active");
+        } else {
+            return;
+        }
 
-  let isFloatMenu = false;
+        $("html, body").animate(
+            {
+                scrollTop: $("#section_" + selectedID).offset().top,
+            },
+            500
+        );
+    });
 
-  window.addEventListener('scroll', function() {
-    
-    if (isFloatMenu && window.scrollY < 80) {
-      $('.menu').removeClass('fixed');
-      isFloatMenu = false;
-    }
+    $("#top").on("click", function () {
+        $("html, body").animate(
+            {
+                scrollTop: 0,
+            },
+            500
+        );
+    });
 
-    if(!isFloatMenu && window.scrollY > 80) {
-      $('.menu').addClass('fixed');
-      isFloatMenu = true;
-    }
-  });
+    let isFloatMenu = false;
 
-  
+    window.addEventListener("scroll", function () {
+        if (isFloatMenu && window.scrollY < 80) {
+            $(".menu").removeClass("fixed");
+            isFloatMenu = false;
+        }
+
+        if (!isFloatMenu && window.scrollY > 80) {
+            $(".menu").addClass("fixed");
+            isFloatMenu = true;
+        }
+    });
+
+    // $(".card").on("click", function () {
+    //     let ele = $(this);
+    //     let id = ele.attr("id");
+
+    //     if (!ele.hasClass("active")) {
+    //         ele.siblings().removeClass("active");
+    //         $("#s_" + id)
+    //             .siblings()
+    //             .removeClass("active");
+    //         ele.addClass("active");
+    //         $("#s_" + id).addClass("active");
+    //     }
+    // });
+
+    $(".btn-toggle").on("click", function (e) {
+        e.preventDefault();
+        $("#addNew").toggleClass("active");
+    });
 });
