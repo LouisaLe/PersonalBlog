@@ -40,59 +40,43 @@
         <div class="title">Add New Post</div>
         <form action="" method="POST" enctype="multipart/form-data">
             @csrf
-            <div class="form-layout">
-                <div class="row mg-b-25">
-                    <div class="col-lg-12">
-                        <div class="form-group">
-                            <label class="form-control-label">Title: <span class="tx-danger">*</span></label>
-                            <input class="form-control" type="text" name="title" placeholder="Enter Post Title">
-                        </div>
-                    </div><!-- col-4 -->
-                    <div class="col-lg-12">
-                        <div class="form-group">
-                            <label class="form-control-label">Excerpt: <span class="tx-danger">*</span></label>
-                            <textarea class="form-control" type="text" name="excerpt" placeholder="Enter Excerpt"></textarea>
-                        </div>
-                    </div><!-- col-4 -->
-                    <div class="col-lg-12">
-                        <div class="form-group">
-                            <label class="form-control-label">Post Details: <span class="tx-danger">*</span></label>
-                            <textarea id="summernote" class="form-control" name="detail">Hello Summernote</textarea>
-                        </div>
-                    </div><!-- col-4 -->
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <label class="form-control-label">Title: <span class="tx-danger">*</span></label>
+                    <input class="form-control" type="text" name="title" placeholder="Enter Post Title">
+                </div>
+            </div><!-- col-4 -->
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <label class="form-control-label">Excerpt: <span class="tx-danger">*</span></label>
+                    <textarea class="form-control" type="text" name="excerpt" placeholder="Enter Excerpt"></textarea>
+                </div>
+            </div><!-- col-4 -->
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <label class="form-control-label">Post Details: <span class="tx-danger">*</span></label>
+                    <textarea id="summernote" class="form-control" name="detail">Hello Summernote</textarea>
+                </div>
+            </div><!-- col-4 -->
 
-                    <div class="col-lg-4">
-                        <div class="form-group">
-                            <label class="form-control-label">Category: <span class="tx-danger">*</span></label>
-                            <!-- <input class="form-control" type="text" name="" value="" placeholder=""> -->
-                            <select name="" id="">
-                                <option value="">1</option>
-                                <option value="">2</option>
-                                <option value="">3</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="form-group">
-                            <label class="form-control-label">Tags: <span class="tx-danger">*</span></label>
-                            <input class="form-control" type="text" name="tags" value="" data-role="tagsinput">
-                        </div>
-                    </div><!-- col-4 -->
-
-                    <div class="col-lg-4">
-                        <div class="form-group">
-                            <label class="form-control-label">Feature Image: <span class="tx-danger">*</span></label>
-                            <label class="custom-file">
-                                <input type="file" id="file" class="input-file form-control" name="feature_img" required="">
-                                <span class="custom-file-control"></span>
-                                <img class="img-show" src="">
-                            </label>
-                        </div>
-                    </div>
-
-                </div><!-- row -->
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label class="form-control-label">Category: <span class="tx-danger">*</span></label>
+                    <!-- <input class="form-control" type="text" name="" value="" placeholder=""> -->
+                    <select name="" id="">
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                    </select>
+                </div>
             </div>
+
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label class="form-control-label">Tags: <span class="tx-danger">*</span></label>
+                    <input class="form-control" type="text" name="tags" value="" data-role="tagsinput">
+                </div>
+            </div><!-- col-4 -->
 
             <div class="form-layout-footer">
                 <button class="btn btn-info mg-r-5">Add Post</button>
