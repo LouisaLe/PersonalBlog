@@ -62,7 +62,6 @@
             <div class="col-lg-4">
                 <div class="form-group">
                     <label class="form-control-label">Category: <span class="tx-danger">*</span></label>
-                    <!-- <input class="form-control" type="text" name="" value="" placeholder=""> -->
                     <select name="" id="">
                         <option value="">1</option>
                         <option value="">2</option>
@@ -86,5 +85,4 @@
     </div>
 </section>
 
-<!-- <div id="summernote">Hello Summernote</div> -->
 @endsection

@@ -19,37 +19,32 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>
-                    <a href="" class="btn btn-sm btn-info">Edit</a>
-                    <a href="" class="btn btn-sm btn-danger">Delete</a>
-                </td>
-            </tr>
+            @foreach($categories as $key => $cat)
+                <tr>
+                    <td>{{ $key + 1 }}</td>
+                    <td>{{ $cat -> name }}</td>
+                    <td>
+                        <a href="{{ URL::to('admin/edit/category/'.$cat -> id ) }}" class="btn btn-sm btn-info">Edit</a>
+                        <a href="{{ URL::to('admin/delete/category/'.$cat -> id ) }}" class="btn btn-sm btn-danger delete">Delete</a>
+                    </td>
+                </tr>
+            @endforeach
         </tbody>
     </table>
 
     <div class="add-new__wrapper" id="addNew">
         <div class="title">Add Category</div>
-        <form action="" method="POST">
+        <form action="{{ route('admin.store.category') }}" method="POST">
             @csrf
             <div class="col-lg-6">
                 <div class="form-group">
                     <label class="form-control-label">Category Name: <span class="tx-danger">*</span></label>
-                    <input class="form-control" type="text" name="category_name" placeholder="Enter Category">
-                </div>
-            </div><!-- col-4 -->
-
-            <div class="col-lg-6">
-                <div class="form-group">
-                    <label class="form-control-label">Slug: <span class="tx-danger">*</span></label>
-                    <input class="form-control" type="text" name="slug" placeholder="Enter Slug">
+                    <input class="form-control" type="text" name="name" placeholder="Enter Category">
                 </div>
             </div><!-- col-4 -->
 
             <div class="form-layout-footer">
-                <button class="btn btn-info mg-r-5">Add Post</button>
+                <button type="submit" class="btn btn-info mg-r-5">Add Category</button>
                 <button class="btn btn-secondary btn-toggle">Cancel</button>
             </div><!-- form-layout-footer -->
         </form>

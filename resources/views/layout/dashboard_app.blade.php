@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="{{ asset('lib/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('lib/css/mdb.min.css') }}">
     <link rel="stylesheet" href="{{ asset('lib/css/datatables.min.css') }}">
-    </link>
+    <link rel="stylesheet" href="{{ asset('lib/css/sweetalert2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('lib/css/toastr.css') }}">
     <link rel="stylesheet" href="{{ asset('lib/css/summernote-bs4.min.css') }}">
     </link>
     <!-- <link rel="stylesheet" href="{{ asset('css/style.css') }}"></link> -->
@@ -90,8 +91,33 @@
     <script src="{{ asset('lib/js/mdb.min.js') }}"></script>
     <script src="{{ asset('lib/js/datatables.min.js') }}"></script>
     <script src="{{ asset('lib/js/summernote-bs4.min.js') }}"></script>
+    <script src="{{ asset('lib/js/sweetalert2.all.min.js') }}"></script>
+    <script src="{{ asset('lib/js/toastr.min.js') }}"></script>
     <script src="{{ asset('js/main.js') }}" defer></script>
     <script src="{{ asset('js/js_main.js') }}" defer></script>
+
+    <script>
+        @if(Session::has('message'))
+            var type = "{{ Session::get('alert-type', 'info') }}";
+            switch(type){
+                case 'info':
+                    toastr.info("{{ Session::get('message') }}");
+                    break;
+                
+                case 'warning':
+                    toastr.warning("{{ Session::get('message') }}");
+                    break;
+
+                case 'success':
+                    toastr.success("{{ Session::get('message') }}");
+                    break;
+
+                case 'error':
+                    toastr.error("{{ Session::get('message') }}");
+                    break;
+            }
+        @endif
+</script>
 </body>
 
 </html>
