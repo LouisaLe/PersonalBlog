@@ -4,7 +4,7 @@
 <section id="s_category" class="section section__category">
     <div class="section__header">
         <label class="title">Category List</label>
-        <a href="" class="btn btn-sm btn-info btn-toggle">Add New</a>
+        <a href="" class="btn btn-sm btn-info btn-toggle" data-target="new">Add New</a>
     </div>
 
     <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
@@ -32,7 +32,7 @@
         </tbody>
     </table>
 
-    <div class="add-new__wrapper" id="addNew">
+    <div class="add-new__wrapper section_toggle" id="section_new">
         <div class="title">Add Category</div>
         <form action="{{ route('admin.store.category') }}" method="POST">
             @csrf
@@ -45,9 +45,13 @@
 
             <div class="form-layout-footer">
                 <button type="submit" class="btn btn-info mg-r-5">Add Category</button>
-                <button class="btn btn-secondary btn-toggle">Cancel</button>
+                <button class="btn btn-secondary btn-toggle btn-cancel">Cancel</button>
             </div><!-- form-layout-footer -->
         </form>
+    </div>
+
+    <div class="add-new__wrapper section_toggle" id="section_edit">
+        
     </div>
 </section>
 @endsection

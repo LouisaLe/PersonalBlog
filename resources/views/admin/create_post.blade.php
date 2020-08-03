@@ -1,0 +1,57 @@
+@extends('layout.dashboard_app')
+
+@section('content')
+<section id="s_category" class="section section__category">
+    <div class="section__header">
+        <label class="title">Add New Post</label>
+        <a href="" class="btn btn-sm btn-info btn-toggle" data-target="new">Add New</a>
+    </div>
+    
+    <div>
+        <form action="" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <label class="form-control-label">Title: <span class="tx-danger">*</span></label>
+                    <input class="form-control" type="text" name="title" placeholder="Enter Post Title">
+                </div>
+            </div><!-- col-4 -->
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <label class="form-control-label">Excerpt: <span class="tx-danger">*</span></label>
+                    <textarea class="form-control" type="text" name="excerpt" placeholder="Enter Excerpt"></textarea>
+                </div>
+            </div><!-- col-4 -->
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <label class="form-control-label">Post Details: <span class="tx-danger">*</span></label>
+                    <textarea id="summernote" class="form-control" name="detail">Hello Summernote</textarea>
+                </div>
+            </div><!-- col-4 -->
+
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label class="form-control-label">Category: <span class="tx-danger">*</span></label>
+                    <select name="" id="">
+                        @foreach($categories as $key => $cat)
+                            <option value="{{ $key + 1}}">{{ $cat -> name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label class="form-control-label">Tags: <span class="tx-danger">*</span></label>
+                    <input class="form-control" type="text" name="tags" value="" data-role="tagsinput">
+                </div>
+            </div><!-- col-4 -->
+
+            <div class="form-layout-footer">
+                <button class="btn btn-info mg-r-5">Add Post</button>
+                <button class="btn btn-secondary btn-toggle">Cancel</button>
+            </div><!-- form-layout-footer -->
+        </form>
+    </div>
+</section>
+@endsection

@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{ asset('lib/css/mdb.min.css') }}">
     <link rel="stylesheet" href="{{ asset('lib/css/datatables.min.css') }}">
     <link rel="stylesheet" href="{{ asset('lib/css/sweetalert2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('lib/css/bootstrap-tagsinput.css') }}">
     <link rel="stylesheet" href="{{ asset('lib/css/toastr.css') }}">
     <link rel="stylesheet" href="{{ asset('lib/css/summernote-bs4.min.css') }}">
     </link>
@@ -93,6 +94,7 @@
     <script src="{{ asset('lib/js/summernote-bs4.min.js') }}"></script>
     <script src="{{ asset('lib/js/sweetalert2.all.min.js') }}"></script>
     <script src="{{ asset('lib/js/toastr.min.js') }}"></script>
+    <script src="{{ asset('lib/js/bootstrap-tagsinput.min.js') }}"></script>
     <script src="{{ asset('js/main.js') }}" defer></script>
     <script src="{{ asset('js/js_main.js') }}" defer></script>
 

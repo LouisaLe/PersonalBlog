@@ -25,11 +25,16 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
     // category
     Route::get('categories', 'AdminController@getAllCategories')->name('categories');
     Route::post('store/categories', 'AdminController@storeCategory')->name('store.category');
-    Route::post('edit/categories/{id}', 'AdminController@editCategory');
+    Route::get('edit/category/{id}', 'AdminController@editCategory');
+    Route::post('update/category/{id}', 'AdminController@updateCategory');
     Route::get('delete/category/{id}', 'AdminController@deleteCategory');
     
     // post
     Route::get('posts', 'AdminController@getAllPosts')->name('posts');
+    Route::get('add/post', 'AdminController@addPost')->name('add.post');
+
+
+
     Route::get('comments', 'AdminController@getAllComments')->name('comments');
     Route::get('medias', 'AdminController@getAllMedias')->name('medias');
 });

@@ -64,7 +64,14 @@ $(document).ready(function () {
 
     $(".btn-toggle").on("click", function (e) {
         e.preventDefault();
-        $("#addNew").toggleClass("active");
+        var target = $(this).attr('data-target');
+        $('#section_'+target).toggleClass('active');
+    });
+
+    $('.btn-cancel').on('click', function(){
+        if ($('.section_toggle').hasClass('active')) {
+            $('.section_toggle').removeClass('active');
+        }
     });
 
     $('.delete').on('click', function(e){
