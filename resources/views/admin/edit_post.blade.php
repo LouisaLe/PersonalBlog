@@ -3,29 +3,28 @@
 @section('content')
 <section id="s_category" class="section section__category">
     <div class="section__header">
-        <label class="title">Add New Post</label>
-        <a href="" class="btn btn-sm btn-info btn-toggle" data-target="new">Add New</a>
+        <label class="title">All Post</label>
     </div>
     
     <div>
-        <form action="{{ route('admin.store.post') }}" method="POST">
+        <form action="{{ URL::to('admin/update/post/'.$post -> id) }}" method="POST">
             @csrf
             <div class="col-lg-12">
                 <div class="form-group">
                     <label class="form-control-label">Title: <span class="tx-danger">*</span></label>
-                    <input class="form-control" type="text" name="title" placeholder="Enter Post Title">
+                    <input class="form-control" type="text" name="title" value="{{ $post -> title }}">
                 </div>
             </div><!-- col-4 -->
             <div class="col-lg-12">
                 <div class="form-group">
                     <label class="form-control-label">Excerpt: <span class="tx-danger">*</span></label>
-                    <textarea class="form-control" type="text" name="excerpt" placeholder="Enter Excerpt"></textarea>
+                    <textarea class="form-control" type="text" name="excerpt">{{ $post -> excerpt }}</textarea>
                 </div>
             </div><!-- col-4 -->
             <div class="col-lg-12">
                 <div class="form-group">
                     <label class="form-control-label">Post Details: <span class="tx-danger">*</span></label>
-                    <textarea id="summernote" class="form-control" name="detail">Hello Summernote</textarea>
+                    <textarea id="summernote" class="form-control" name="detail">{{ $post -> detail }}</textarea>
                 </div>
             </div><!-- col-4 -->
 
@@ -34,7 +33,7 @@
                     <label class="form-control-label">Category: <span class="tx-danger">*</span></label>
                     <select name="category_id">
                         @foreach($categories as $key => $cat)
-                            <option value="{{ $cat -> id}}">{{ $cat -> name}}</option>
+                            <option <?php if($post -> category_id == $cat -> id) { echo 'selected';} ?> value="{{ $cat -> id}}">{{ $cat -> name}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -43,13 +42,13 @@
             <div class="col-lg-4">
                 <div class="form-group">
                     <label class="form-control-label">Tags: <span class="tx-danger">*</span></label>
-                    <input class="form-control" type="text" name="tags" value="" data-role="tagsinput">
+                    <input class="form-control" type="text" name="tags" value="{{$post -> tags}}" data-role="tagsinput">
                 </div>
             </div><!-- col-4 -->
 
             <div class="form-layout-footer">
-                <button type="submit" class="btn btn-info mg-r-5">Add Post</button>
-                <button class="btn btn-secondary btn-toggle">Cancel</button>
+                <button type="submit" class="btn btn-info mg-r-5">Update Post</button>
+                <!-- <button class="btn btn-secondary btn-toggle">Cancel</button> -->
             </div><!-- form-layout-footer -->
         </form>
     </div>

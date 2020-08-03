@@ -16,23 +16,24 @@
                 </th>
                 <th class="th-sm">Category
                 </th>
-                <th class="th-sm">Date Published
-                </th>
+                <!-- <th class="th-sm">Date Published
+                </th> -->
                 <th class="th-sm">Action
                 </th>
             </tr>
         </thead>
         <tbody>
+            @foreach($posts as $key => $post)
             <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect System ArchitectSystem Architect System ArchitectSystem ArchitectSystem ArchitectSystem ArchitectSystem Architect</td>
-                <td>System Architect</td>
-                <td>System Architect</td>
+                <td>{{ $key + 1 }}</td>
+                <td>{{ $post -> title }}</td>
+                <td>{{ $post -> name}}</td>
                 <td>
-                    <a href="" class="btn btn-sm btn-info">Edit</a>
-                    <a href="" class="btn btn-sm btn-danger">Delete</a>
+                    <a href="{{ URL::to('admin/edit/post/'.$post -> id) }}" class="btn btn-sm btn-info">Edit</a>
+                    <a href="{{ URL::to('admin/delete/post/'.$post -> id) }}" class="btn btn-sm btn-danger delete">Delete</a>
                 </td>
             </tr>
+            @endforeach
         </tbody>
     </table>
 </section>

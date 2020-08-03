@@ -32,6 +32,12 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
     // post
     Route::get('posts', 'AdminController@getAllPosts')->name('posts');
     Route::get('add/post', 'AdminController@addPost')->name('add.post');
+    Route::post('store/post', 'AdminController@storePost')->name('store.post');
+
+    Route::get('edit/post/{id}', 'AdminController@editPost')->name('edit.post');
+    Route::post('update/post/{id}', 'AdminController@updatePost');
+
+    Route::get('delete/post/{id}', 'AdminController@deletePost')->name('delete.post');
 
 
 

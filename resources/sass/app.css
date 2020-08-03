@@ -227,6 +227,12 @@ a:hover {
   background-image: linear-gradient(to top, #e2cd6d, #f2e9bf);
 }
 
+.bootstrap-tagsinput .tag {
+  background-color: #33b5e5;
+  border-radius: 4px;
+  padding: 2px 4px;
+}
+
 .admin-dashboard__container {
   background-color: #eee;
   min-height: calc(100vh - 150px);

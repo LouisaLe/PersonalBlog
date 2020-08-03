@@ -3,7 +3,9 @@ $(document).ready(function () {
     $(".dataTables_length").addClass("bs-select");
 
     // Init summer note
-    $("#summernote").summernote();
+    $("#summernote").summernote({
+        'height': 150
+    });
     // End summer note
 
     $(".menu__item").on("click", function () {

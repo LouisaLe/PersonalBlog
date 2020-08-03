@@ -17,11 +17,11 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->integer('category_id');
             $table->string('title');
-            $table->string('excerpt');
-            $table->string('detail');
-            $table->string('tags'); 
+            $table->text('excerpt') -> nullable();
+            $table->text('detail');
+            $table->string('tags') -> nullable(); 
             $table->string('slug');
-            $table->boolean('is_active');
+            $table->boolean('is_active') -> default(1);
             $table->timestamps();
         });
     }
