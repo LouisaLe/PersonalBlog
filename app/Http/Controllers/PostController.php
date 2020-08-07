@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use DB;
 use App\Post;
-
+use SebastianBergmann\Environment\Console;
 
 class PostController extends Controller
 {
@@ -100,11 +101,8 @@ class PostController extends Controller
     }
 
     public function showPost($id) {
-        $post = DB::table('posts')
-        -> join('categories','categories.id','posts.category_id')
-        -> select('posts.*','categories.name')
-        -> where('posts.id', $id) -> first();
-
-        return view('post.show', compact('post'));
+        $post = Post::find($id);
+        $comments = Comment::all();
+        return view('post.show', compact(['post', 'comments']));
     }
 }

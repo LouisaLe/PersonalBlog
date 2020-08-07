@@ -37,8 +37,14 @@
                     <div class="form-group">
                         <label for="comment">Leave your comment:</label>
                         <textarea class="form-control" id="comment" rows="3" name="comment"></textarea>
+                        <input type="hidden" name="post_id" value="{{$post -> id}}">
                     </div>
+
+                    <button type="submit">Comment</button>
                 </form>
+
+                <!-- load all replies and parent comments -->
+                @include('post.reply.replies', ['$comments' => $comments, 'post_id' => $post -> id])
             </div>
         </div>
     </div>
