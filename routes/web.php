@@ -46,4 +46,5 @@ Route::get('show/post/{id}', 'PostController@showPost')->name('show.post');
 
 // comment
 
-Route::post('add/comment', 'CommentController@addReply') -> name('add.reply');
+Route::post('add/comment', 'CommentController@addComment') -> name('add.comment');
+Route::post('add/reply', 'CommentController@addReply') -> name('add.reply');

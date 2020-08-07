@@ -4,9 +4,6 @@
 // Variables
 @import "variables";
 
-// Bootstrap
-// @import "~bootstrap/scss/bootstrap";
-
 * {
     padding: 0;
     margin: 0;
@@ -234,6 +231,18 @@ a:hover {
     );
     background-image: linear-gradient(to top, #e2cd6d, #f2e9bf);
 }
+
+.display-comment {
+
+    form {
+        display: none;
+    }
+
+    .display-comment {
+        margin-left: 40px;
+        
+    }
+} 
 
 // Backend Style
 
