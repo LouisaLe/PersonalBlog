@@ -58,23 +58,13 @@
                             Post
                         </div>
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                            <a href="{{ route('admin.posts') }}" class="card-body">
+                            <a href="{{ route('posts') }}" class="card-body">
                                 All posts
                             </a>
                             <div class="card-body">
                                 New Post
                             </div>
                         </div>
-                    </div>
-                    <div id="comment" class="card">
-                        <a href="{{ route('admin.comments') }}" class="card-header" id="headingThree">
-                            Commets
-                        </a>
-                    </div>
-                    <div id="media" class="card">
-                        <a href="{{ route('admin.medias') }}" class="card-header">
-                            Media
-                        </a>
                     </div>
                 </div>
             </div>

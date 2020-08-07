@@ -15,13 +15,13 @@ class Post extends Model
         $this->belongsTo('App\User');
     }
 
-    public function comments()
-    {
-        return $this->hasMany('App\Comment');
-    }
-
     public function category()
     {
         return $this->belongsTo('App\Category');
+    }
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable') -> whereNull('parent_id');
     }
 }

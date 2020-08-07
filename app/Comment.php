@@ -7,16 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     protected $fillable = [
-        'post_id', 'user_id', 'detail'
+        'id', 'user_id', 'guest_name', 'guest_email', 'parent_id', 'comment', 'commentable_id', 'commentable_type'
     ];
 
-    public function user()
-    {
-        return $this->belongsTo('App\User');
+    public function user() {
+        return $this -> belongsTo(User::class);
     }
 
-    public function post()
-    {
-        return $this->belongsTo('App\Post');
+    public function post() {
+        return $this -> belongsTo(Post::class);
+    }
+
+    public function replies() {
+        return $this -> hasMany(Comment::class, 'parent_id');
     }
 }
