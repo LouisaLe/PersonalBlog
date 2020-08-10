@@ -20,12 +20,6 @@ class CommentController extends Controller
                 'comment' => 'required'
             ]);
 
-            if ($validator->fails()) {
-                return redirect()->back()
-                    ->withErrors($validator)
-                    ->withInput();
-            }
-
             $comment = new Comment();
             $comment->comment = $request->comment;
             $comment->user()->associate($request->user());
@@ -40,19 +34,13 @@ class CommentController extends Controller
                 'comment' => 'required'
             ]);
 
-            if ($validator->fails()) {
-                return redirect()->back()
-                    ->withErrors($validator)
-                    ->withInput();
-            } else {
-                $comment = new Comment();
-                $comment->guest_name = $request->guest_name;
-                $comment->guest_email = $request->guest_email;
-                $comment->comment = $request->comment;
-                $post =  Post::find($request->post_id);
-                $post->comments()->save($comment);
-                return back();
-            }
+            $comment = new Comment();
+            $comment->guest_name = $request->guest_name;
+            $comment->guest_email = $request->guest_email;
+            $comment->comment = $request->comment;
+            $post =  Post::find($request->post_id);
+            $post->comments()->save($comment);
+            return back();
         }
     }
 
@@ -66,12 +54,6 @@ class CommentController extends Controller
                 'comment' => 'required',
                 'parent_id' => 'required'
             ]);
-
-            // if ($validator->fails()) {
-            //     return redirect()->back()
-            //         ->withErrors($validator)
-            //         ->withInput();
-            // }
 
             $comment = new Comment();
             $comment->comment = $request->reply_comment;
