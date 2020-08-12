@@ -48,3 +48,7 @@ Route::get('show/post/{id}', 'PostController@showPost')->name('show.post');
 
 Route::post('add/comment', 'CommentController@addComment') -> name('add.comment');
 Route::post('add/reply', 'CommentController@addReply') -> name('add.reply');
+
+// front end
+
+Route::get('post/detail/{id}', 'HomeController@postDetail')->name('post.detail');

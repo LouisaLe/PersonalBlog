@@ -1,25 +1,27 @@
-<button id="top" class="btn btn-warning">Top</button>
+<button id="top" class="btn-top">
+    <img src="{{ asset('imgs/icon_arrow.svg') }}" alt="">
+</button>
 
 <div class="footer__wrapper">
     <div class="footer__contact">
         <ul class="contact__list">
             <li class="contact__item">
-                <a href="https://www.linkedin.com/in/nhi-le-97b492144/" targt="_blank">
+                <a href="https://www.linkedin.com/in/nhi-le-97b492144/" target="_blank">
                     <img src="{{ asset('imgs/skype.svg') }}" alt="Skype">
                 </a>
             </li>
             <li class="contact__item">
-                <a href="https://www.linkedin.com/in/nhi-le-97b492144/" targt="_blank">
+                <a href="https://www.linkedin.com/in/nhi-le-97b492144/" target="_blank">
                     <img src="{{ asset('imgs/linkedin.svg') }}" alt="Linked In">
                 </a>
             </li>
             <li class="contact__item">
-                <a href="https://www.linkedin.com/in/nhi-le-97b492144/" targt="_blank">
+                <a href="https://codepen.io/nhile1001" target="_blank">
                     <img src="{{ asset('imgs/github.svg') }}" alt="Github">
                 </a>
             </li>
             <li class="contact__item">
-                <a href="https://www.linkedin.com/in/nhi-le-97b492144/" targt="_blank">
+                <a href="https://codepen.io/nhile1001" target="_blank">
                     <img src="{{ asset('imgs/codepen.svg') }}" alt="Codepen">
                 </a>
             </li>

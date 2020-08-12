@@ -50,7 +50,7 @@ class CommentController extends Controller
 
         // form request for validate
         if (Auth::check()) {
-            $validator = Validator::make($request->all(), [
+            $validator = $request->validate([
                 'comment' => 'required',
                 'parent_id' => 'required'
             ]);
@@ -65,7 +65,7 @@ class CommentController extends Controller
 
         } else {
             // do something
-            $validator = Validator::make($request->all(), [
+            $validator = $request->validate([
                 'parent_id' => 'required',
                 'guest_name' => 'required',
                 'guest_email' => 'required',

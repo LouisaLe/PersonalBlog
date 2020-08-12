@@ -25,7 +25,6 @@
     <script src="{{ asset('lib/js/jquery-3.5.1.min.js') }}"></script>
     <script src="{{ asset('lib/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/main.js') }}" defer></script>
-    <script src="{{ asset('js/js_main.js') }}" defer></script>
 </body>
 
 </html>

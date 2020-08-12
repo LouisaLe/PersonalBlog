@@ -85,8 +85,7 @@
     <script src="{{ asset('lib/js/sweetalert2.all.min.js') }}"></script>
     <script src="{{ asset('lib/js/toastr.min.js') }}"></script>
     <script src="{{ asset('lib/js/bootstrap-tagsinput.min.js') }}"></script>
-    <script src="{{ asset('js/main.js') }}" defer></script>
-    <script src="{{ asset('js/js_main.js') }}" defer></script>
+    <script src="{{ asset('js/main-be.js') }}" defer></script>
 
     <script>
         @if(Session::has('message'))

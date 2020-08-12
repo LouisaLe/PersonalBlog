@@ -96,7 +96,7 @@ class PostController extends Controller
             'alert-type' => 'success'
         ]);
 
-        return Redirect() -> route('posts') -> with($notification);
+        return Redirect() -> route('posts') -> with($notification); 
 
     }
 
