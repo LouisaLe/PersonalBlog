@@ -52,4 +52,9 @@ $(document).ready(function () {
         var target = $(this).attr("data-target");
         $("#section_" + target).toggleClass("active");
     });
+
+    $('.btn-show-reply').on('click', function(){
+        $(this).addClass('hidden');
+        $(this).siblings('form').slideDown();
+    });
 });

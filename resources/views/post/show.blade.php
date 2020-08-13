@@ -24,14 +24,14 @@
                     @guest
 
                     <div class="form-group">
-                        <label for="guestName">Enter your Name:<span class="madatory_star">*</span></label>
+                        <label for="guestName">Nhập tên của bạn:<span class="madatory_star">*</span></label>
                         <input class="form-control" id="guestName" name="guest_name" required></input>
                         @error('guest_name')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="guestEmail">Enter your Email:<span class="madatory_star">*</span></label>
+                        <label for="guestEmail">Nhập email của bạn:<span class="madatory_star">*</span></label>
                         <input class="form-control" id="guestEmail" name="guest_email" required></input>
                         @error('guest_email')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -41,7 +41,7 @@
                     @endguest
 
                     <div class="form-group">
-                        <label for="comment">Leave your comment:<span class="madatory_star">*</span></label>
+                        <label for="comment">Bình luận:<span class="madatory_star">*</span></label>
                         <textarea class="form-control" id="comment" rows="3" name="comment" required></textarea>
                         <input type="hidden" name="post_id" value="{{$post -> id}}">
                         @error('comment')

@@ -52,3 +52,5 @@ Route::post('add/reply', 'CommentController@addReply') -> name('add.reply');
 // front end
 
 Route::get('post/detail/{id}', 'HomeController@postDetail')->name('post.detail');
+Route::get('all/posts', 'HomeController@allPost')->name('all.posts');
+Route::get('all/posts/cate/{cateID}', 'HomeController@getAllPostsByCategory')->name('all.cate.posts');

@@ -56,16 +56,20 @@
         <div class="section__title">Works</div>
     </section> -->
     <section id="section_blogs" class="section section__blogs">
-        <div class="section__title">Blogs<span class="note"> (Vietnamese)</span></div>
+        <div class="section__title">
+        Blogs
+        <span class="note"> (Vietnamese)</span>
+        <div class="section__tags">
+                <a href="{{ route('all.posts') }}" class="tags">All</a>
+                <a href="{{ URL::to('all/posts/cate/1') }}" class="tags">Javascript</a>
+                <a href="{{ URL::to('all/posts/cate/2') }}" class="tags">CSS</a>
+                <a href="{{ URL::to('all/posts/cate/2') }}" class="tags">Aminations</a>
+                <a href="{{ URL::to('all/posts/cate/2') }}"class="tags">Tricks</a>
+            </div>
+        </div>
 
         <div class="section__content">
-            <!-- <div class="section__tags">
-                <a class="tags">All</a>
-                <a class="tags">Javascript</a>
-                <a class="tags">CSS</a>
-                <a class="tags">Aminations</a>
-                <a class="tags">Tricks</a>
-            </div> -->
+            
 
             <div class="section__post-content">
                 @foreach($posts as $post)
@@ -78,15 +82,14 @@
                     </div>
                     <div class="post__exceprt">{{ Str::limit($post -> excerpt,100) }}</div>
                     <div class="post__feature">
-                        <a href="#" class="icon__item"><img class="icon" src="{{ asset('imgs/icon_folders.svg') }}" alt="Icons">{{ $post -> name}}</a>
+                        <a href="{{ URL::to('all/posts/cate\/').$post -> category_id }}" class="icon__item"><img class="icon" src="{{ asset('imgs/icon_folders.svg') }}" alt="Icons">{{ $post -> name}}</a>
                         <a href="#" class="icon__item"><img class="icon" src="{{ asset('imgs/icon_comments.svg') }}" alt="Icons">100 comments</a>
                     </div>
                 </div>
                 @endforeach
 
             </div>
-            <a href="#" class="btn btn-show-all">Read all Posts</a>
-
+            <a href="{{ route('all.posts') }}" class="btn btn-show-all">Read all Posts</a>
 
         </div>
 
@@ -116,7 +119,7 @@
                 <label for="contact_message">Messege</label>
             </div>
 
-            <button class="btn btn-primary" type="submit">SEND EMAIL</button>
+            <button class="btn btn-primary" type="submit">Send Email</button>
         </form>
     </section>
 </div>
