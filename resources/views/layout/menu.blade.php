@@ -19,6 +19,8 @@
             <li class="menu__item">
                 <a id="contact" href="#">Contact</a>
             </li>
+            <li class="menu__item menu__item--fixed">
+            </li>
         </ul>
     </div>
 </div>

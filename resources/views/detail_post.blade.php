@@ -3,15 +3,14 @@
 @section('content')
 
 @include('layout.menu-inside')
-
+<h1 class="post__title post-detail__title">{{ $post->title }}</h1>
 <div class="container">
-    <div class="bread-cum">
-        <a href="{{ route('home') }}">Home &#8811;</a>
-        <a href="{{ route('all.posts') }}">Posts &#8811;</a>
-        <span class="active">{{ $category -> name}}</span>
-    </div>
     <div class="post__container">
-        <div class="post-detail__title">{{ $post->title }}</div>
+        <div class="bread-cum">
+            <a href="{{ route('home') }}">Home &#8811;</a>
+            <a href="{{ route('all.posts') }}">Posts &#8811;</a>
+            <span class="active">{{ $category -> name}}</span>
+        </div>
 
         <div class="small-text code-text">
             Category: {{ $category -> name}}

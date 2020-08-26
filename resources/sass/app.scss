@@ -16,6 +16,10 @@ li {
     list-style: none;
 }
 
+img {
+    width: 100%;
+}
+
 a,
 a:hover {
     font-size: inherit;
@@ -30,6 +34,13 @@ a:hover {
 .note {
     font-size: 16px;
     font-style: italic;
+}
+
+.navbar__wrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
 }
 
 .navbar__border {
@@ -48,8 +59,8 @@ a:hover {
 }
 
 .page__wrapper {
-    max-width: 1400px;
-    width: 85%;
+    width: 100%;
+    padding: 0;
     margin: 0 auto;
 }
 
@@ -62,6 +73,10 @@ a:hover {
 .menu__item {
     padding: 5 15px;
     margin: 0 8px;
+    cursor: pointer;
+    .menu__item--fixed {
+        display: none;
+    }
 }
 
 .menu__item.active {
@@ -71,10 +86,39 @@ a:hover {
 .menu.fixed {
     display: block;
     position: fixed;
+    z-index: 1;
     right: 0;
     top: 50%;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
+    transition: all 0.25s ease;
+    .menu__item {
+        display: none;
+    }
+    .menu__item--fixed {
+        display: block;
+        height: 50px;
+        width: 50px;
+        background-color: #fb3;
+        background-image: url(../../public/imgs/icon-mobile-menu.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        position: absolute;
+        right: 2px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    &.toggle {
+        padding-right: 40px;
+        background-color: #f2e9bf;
+        // border: 1px solid #ccc;
+        .menu__item {
+            display: block;
+        }
+        .menu__item--fixed {
+            background-image: url(../../public/imgs/icon-mobile-close.svg);
+        }
+    }
 }
 
 .sub-menu {
@@ -86,14 +130,104 @@ a:hover {
     height: 80px;
 }
 
+.bread-cum {
+    margin: 15px 0;
+    margin-left: 30px;
+    color: #bbbbbb;
+    a:hover {
+        color: #333333;
+    }
+}
+
+h1.section__title {
+    background-color: red;
+
+    /* Create the gradient. */
+    background-image: linear-gradient(0deg, #ff8a00, #e52e71);
+    
+    /* Set the background size and repeat properties. */
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+}
 
 .section {
     min-height: 100vh;
     padding-top: 80px;
     clear: both;
     position: relative;
+    &.amination--text {
+        .section__title {
+            transition: all 1s ease;
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+    .section__title {
+        transform: translateX(-100px);
+        opacity: 0;
+        transition: all 1s ease;
+    }
+    &__wrapper {
+        min-height: 100vh;
+        margin-bottom: 50px;
+    }
+    &__border {
+        width: 80%;
+        min-height: 100%;
+        margin: 0 auto;
+        max-width: 1256px;
+    }
     &__home {
         height: 100vh;
+        background-image: url(../../public/imgs/getting-img.png);
+        background-size: 400px;
+        background-position: 20% center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    &__about {
+        position: relative;
+        background-color: #ffe6b3;
+        &::before {
+            content: 'About';
+            position: absolute;
+            top: -80px;
+            z-index: 1;
+            background-color: red;
+            height: 80px;
+            width: 200px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .item__absolute {
+            position: absolute;
+            content: "";
+            width: 200px;
+            height: 200px;
+        }
+        .puppy {
+            display: none;
+            top: 0;
+            right: 40px;
+        }
+        // .section__title {
+        //     background-color: red;
+
+        //     /* Create the gradient. */
+        //     background-image: linear-gradient(0deg, #ff8a00, #e52e71);
+            
+        //     /* Set the background size and repeat properties. */
+        //     background-size: 100%;
+        //     background-repeat: repeat;
+        //     -webkit-background-clip: text;
+        //     -webkit-text-fill-color: transparent; 
+        //     -moz-background-clip: text;
+        //     -moz-text-fill-color: transparent;
+        // }
     }
     &__title {
         font-size: 3.5rem;
@@ -102,12 +236,17 @@ a:hover {
         text-align: center;
     }
     &__blogs .tags {
-        display: inline-block;
-        padding: 2px 8px;
+        padding: 5px 15px;
         border: 1px solid #ccc;
-        // border-radius: 4px;
+        line-height: 1;
+        font-size: 14px;
+        margin: 5px;
     }
     &__contact {
+        background-image: url(../../public/imgs/form-bg.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
         max-width: 800px;
         margin: 0 auto;
     }
@@ -120,6 +259,13 @@ a:hover {
         grid-template-columns: 50% 50%;
         grid-gap: 15px;
     }
+
+    &__tags {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
     &__tags a {
         font-size: 14px;
         padding: 3px 8px;
@@ -132,7 +278,25 @@ a:hover {
     }
     &:last-child {
         min-height: calc(100vh - 150px);
+        .section__border {
+            min-height: auto;
+        }
     }
+
+    &__posts--all {
+        display: grid;
+        width: 80%;
+        margin: 0 auto;
+        grid-template-columns: 70% 30%;
+        grid-column-gap: 30px;
+        .section__post-content {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+}
+
+.post-detail__title {
+    text-align: center;
 }
 
 .post {
@@ -158,6 +322,64 @@ a:hover {
     &__feature a {
         cursor: pointer;
     }
+}
+
+.category__wrapper,
+.posts--popular {
+    background-color: #333333;
+    color: #ffffff;
+    padding: 20px;
+}
+
+.nav-side{
+    &__wrapper {
+        width: 100%;
+        place-self: flex-end;
+    }
+    &__label {
+        display: block;
+        text-transform: uppercase;
+        text-align: center;
+        position: relative;
+        padding-bottom: 5px;
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 2px;
+            width: 80px;
+            background: linear-gradient(90deg,#ff8a00,#e52e71);
+        }
+    }
+}
+
+.posts--popular {
+    .post__item {
+        padding: 5px;
+        border: none;
+        border-bottom: 0.5px solid rgba($color: #ffffff, $alpha: 0.8);
+        margin-bottom: 5px;
+        &:last-child {
+            border-bottom: none;
+        }
+        .post__title, .post__title:hover {
+            font-weight: 400;
+            font-size: 16px;
+        }
+        .post__tags {
+            font-size: 14px;
+        }
+    }
+}
+
+.category__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
 }
 
 .icon {
@@ -206,10 +428,12 @@ a:hover {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    place-content: flex-end;
     position: relative;
     top: 30%;
     -webkit-transform: translateY(-30%);
     transform: translateY(-30%);
+    height: 100%;
 }
 
 .content__item {
@@ -224,17 +448,16 @@ a:hover {
 }
 
 .getting__desc {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    text-align: center;
+    // display: -webkit-box;
+    // display: -ms-flexbox;
+    // display: flex;
+    // -webkit-box-orient: vertical;
+    // -webkit-box-direction: normal;
+    // -ms-flex-direction: column;
+    // flex-direction: column;
+    // -webkit-box-pack: center;
+    // -ms-flex-pack: center;
+    // justify-content: center;
 }
 
 .getting__text {
@@ -300,12 +523,6 @@ a:hover {
         transition: all 0.25s ease;
     }
 
-    &__contact button {
-        position: relative;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
     &__contact .form-group {
         position: relative;
     }
@@ -331,7 +548,8 @@ a:hover {
 }
 
 @keyframes btnBounce {
-    0%, 100% {
+    0%,
+    100% {
         transform: translateY(0%);
     }
     20% {
@@ -340,7 +558,6 @@ a:hover {
     40% {
         transform: translateY(5px);
     }
-    
 }
 
 .btn-top {
@@ -409,7 +626,7 @@ a:hover {
     color: rgb(207, 33, 27);
 }
 
-.comment{
+.comment {
     &__line {
         display: flex;
         align-items: center;
@@ -425,6 +642,13 @@ a:hover {
     }
 }
 
+// temp
+
+.slick-prev,
+.slick-dots,
+.slick-next {
+    display: none !important;
+}
 
 // Backend Style
 
@@ -506,5 +730,64 @@ a:hover {
     }
     &__wrapper.active {
         left: 0;
+    }
+}
+
+@media (min-width: 668px) and (max-width: 1119px) {
+    .page__wrapper {
+        width: 90%;
+    }
+    .getting {
+        &__text {
+            font-size: 2.5rem;
+        }
+    }
+}
+
+@media (max-width: 667px) {
+    .page__wrapper {
+        width: 100%;
+    }
+
+    .content {
+        &__wrapper {
+            flex-direction: column-reverse;
+            top: 20%;
+            transform: translateY(-20%);
+        }
+        &__item {
+            width: 100%;
+        }
+    }
+
+    .getting {
+        &__text {
+            font-size: 2.5rem;
+        }
+
+        &__desc {
+            margin-bottom: 40px;
+        }
+
+        &__sub-text {
+            font-size: 20px;
+        }
+    }
+
+    .section {
+        &__title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        &__post-content {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .feature__blocks {
+        grid-template-columns: 1fr;
+    }
+    .form__contact {
+        width: 80%;
     }
 }

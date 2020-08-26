@@ -16,6 +16,8 @@
                     <li>Chia theo tag recommend: newest, javascript, css, amination, tricks, ...</li>
                 </ul>
             </li>
+
+            <li class="menu__item menu__item--fixed"></li>
         </ul>
     </div>
 </div>

@@ -25,13 +25,15 @@ class HomeController extends Controller
     {
         $posts = DB::table('posts')
         -> join('categories', 'posts.category_id', 'categories.id')
-        -> select('posts.*', 'categories.name') -> get();
-        return view('home', compact('posts'));
+        -> select('posts.*', 'categories.name') -> take(4) -> get();
+
+        $cats = DB::table('categories') -> get();
+
+        return view('home', compact(['posts', 'cats']));
     }
 
     public function postDetail($id) {
         $post = Post::find($id);
-        // $posts = Post::all();
         $category = DB::table('categories') -> where('id', $post -> category_id) -> first();
 
         return view('detail_post', compact(['post', 'category']));
@@ -41,9 +43,10 @@ class HomeController extends Controller
         $posts = DB::table('posts')
         -> join('categories', 'posts.category_id', 'categories.id')
         -> select('posts.*', 'categories.name') -> get();
-        // $posts = Post::with('category') -> get();
-        // $posts = Post::with('category')->get();
-        return view('all_post', compact('posts'));
+
+        $cats = DB::table('categories') -> get();
+
+        return view('all_post', compact(['posts','cats']));
     }
 
 
