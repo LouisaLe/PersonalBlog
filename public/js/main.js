@@ -41,6 +41,7 @@ let isFloatMenu = false;
 let toggleMenuItem = document.querySelector('.menu__item--fixed');
 let bgHome = document.querySelector(".section__home");
 let bgAbout = document.querySelector(".section__about");
+let bgBlog = document.querySelector(".section__blogs");
 let bgContact = document.querySelector(".section__contact");
 let contactOffsetY = bgContact.offsetTop;
 
@@ -65,49 +66,63 @@ window.addEventListener("scroll", function () {
 
     
     // let puppy = document.querySelector(".puppy");
-    bgHome.style.backgroundPosition = `${
-        20 - backgroundPositionY / 100
-    }% center`;
+    // bgHome.style.backgroundPosition = `${
+    //     20 - backgroundPositionY / 100
+    // }% center`;
     // puppy.style.right = `${40 + backgroundPositionY * 0.2}px`;
     // bgContact.style.transform = `scale(${1 + (backgroundPositionY-contactOffsetY)/100})`
 });
 
-bgAbout.addEventListener('click', (e) => {
-    let id = e.target.id;
+function scrollToSection(id) {
     $("html, body").animate({
         scrollTop: $('#'+id).offset().top,
     },500);
+}
+
+bgAbout.addEventListener('click', (e) => {
+    let id = e.target.id;
+    scrollToSection(id);
+});
+
+bgBlog.addEventListener('click', (e) =>{
+    let id = e.target.id;
+    scrollToSection(id);
+});
+
+bgContact.addEventListener('click', (e) => {
+    let id = e.target.id;
+    scrollToSection(id);
 })
 
 
 // extension for triggering event when window scroll has stopped
-$.fn.scrollEnd = function(callback, timeout) {          
-    $(this).scroll(function(){
-      var $this = $(this);
-      if ($this.data('scrollTimeout')) {
-        clearTimeout($this.data('scrollTimeout'));
-      }
-      $this.data('scrollTimeout', setTimeout(callback,timeout));
-    });
-  };
+// $.fn.scrollEnd = function(callback, timeout) {          
+//     $(this).scroll(function(){
+//       var $this = $(this);
+//       if ($this.data('scrollTimeout')) {
+//         clearTimeout($this.data('scrollTimeout'));
+//       }
+//       $this.data('scrollTimeout', setTimeout(callback,timeout));
+//     });
+//   };
 
-function srcollSectionTop(offset) {
-    $(window).scrollEnd(function(){
-            $("html, body").animate({ scrollTop: offset }, 500);
-    }, 600);
+// function srcollSectionTop(offset) {
+//     $(window).scrollEnd(function(){
+//             $("html, body").animate({ scrollTop: offset }, 500);
+//     }, 600);
         
-}
+// }
 
 // using intersection observer
 
 const observerElements = document.querySelectorAll(".section");
 const observerOption = {
-    threshold: [0, 0.5]
+    threshold: [0, 0.15]
 }
 
 const intersectionObserver = new IntersectionObserver((entries, observerOption) => {
     entries.forEach((entry) => {
-        if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.15) {
             // srcollSectionTop(entry.target.offsetTop);
             entry.target.classList.add('amination--text');
         } else {

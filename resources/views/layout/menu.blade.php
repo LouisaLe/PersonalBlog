@@ -1,9 +1,13 @@
 <div class="navbar__wrapper">
     <div class="navbar__border">
-        <a href="{{ route('home') }}" class="logo">
+        <a href="{{ route('home') }}" class="logo" style="opacity: 0;">
             <img src="{{ asset('imgs/logo.svg') }}" alt="Logo">
         </a>
         <ul class="menu">
+
+            <li class="menu__item">
+                <a id="home" href="#">Home</a>
+            </li>
             <li class="menu__item">
                 <a id="about" href="#">About</a>
             </li>

@@ -47,7 +47,7 @@
 
             </div>
 
-            <button>Download my Resume</button>
+            <a class="btn" href="http://example.com/files/myfile.pdf" target="_blank">Download my Résume</a>
         
         
         </div>
@@ -84,7 +84,7 @@
                         <div class="post__exceprt">{{ Str::limit($post -> excerpt,100) }}</div>
                         <div class="post__feature">
                             <a href="{{ URL::to('all/posts/cate\/').$post -> category_id }}" class="icon__item"><img class="icon" src="{{ asset('imgs/icon_folders.svg') }}" alt="Icons">{{ $post -> name}}</a>
-                            <a href="#" class="icon__item"><img class="icon" src="{{ asset('imgs/icon_comments.svg') }}" alt="Icons">100 comments</a>
+                            <a href="#" class="icon__item"><img class="icon" src="{{ asset('imgs/icon_comments.svg') }}" alt="Icons">100</a>
                         </div>
                     </div>
                     @endforeach
