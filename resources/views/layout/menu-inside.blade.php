@@ -1,8 +1,8 @@
 <div class="navbar__wrapper">
     <div class="navbar__border">
-        <a href="{{ route('home') }}" class="logo">
+        <!-- <a href="{{ route('home') }}" class="logo">
             <img src="{{ asset('imgs/logo.svg') }}" alt="Logo">
-        </a>
+        </a> -->
         <ul class="menu">
             <li class="menu__item">
                 <a id="about" href="{{ route('home') }}">Home</a>

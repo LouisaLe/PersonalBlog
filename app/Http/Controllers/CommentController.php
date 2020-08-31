@@ -16,9 +16,9 @@ class CommentController extends Controller
     {
         // form request for validate
         if (Auth::check()) {
-            $validator = Validator::make($request->all(), [
-                'comment' => 'required'
-            ]);
+            // $validator = Validator::make($request->all(), [
+            //     'comment' => 'required'
+            // ]);
 
             $comment = new Comment();
             $comment->comment = $request->comment;
@@ -28,11 +28,11 @@ class CommentController extends Controller
             return back();
         } else {
             // do something
-            $validator = Validator::make($request->all(), [
-                'guest_name' => 'required',
-                'guest_email' => 'required',
-                'comment' => 'required'
-            ]);
+            // $validator = Validator::make($request->all(), [
+            //     'guest_name' => 'required',
+            //     'guest_email' => 'required',
+            //     'comment' => 'required'
+            // ]);
 
             $comment = new Comment();
             $comment->guest_name = $request->guest_name;
@@ -50,10 +50,10 @@ class CommentController extends Controller
 
         // form request for validate
         if (Auth::check()) {
-            $validator = $request->validate([
-                'comment' => 'required',
-                'parent_id' => 'required'
-            ]);
+            // $validator = $request->validate([
+            //     'comment' => 'required',
+            //     'parent_id' => 'required'
+            // ]);
 
             $comment = new Comment();
             $comment->comment = $request->reply_comment;
@@ -65,12 +65,12 @@ class CommentController extends Controller
 
         } else {
             // do something
-            $validator = $request->validate([
-                'parent_id' => 'required',
-                'guest_name' => 'required',
-                'guest_email' => 'required',
-                'comment' => 'required'
-            ]);
+            // $validator = $request->validate([
+            //     'parent_id' => 'required',
+            //     'guest_name' => 'required',
+            //     'guest_email' => 'required',
+            //     'comment' => 'required'
+            // ]);
 
             $comment = new Comment();
             $comment->comment = $request->reply_comment;

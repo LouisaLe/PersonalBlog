@@ -69,14 +69,16 @@
             </div>
 
             <div class="section__content">
-                <div class="section__post-content slick--slider">
+                <div class="section__post-content-border slick--slider">
                     @foreach($posts as $post)
                     <div class="post__item">
                         <a href="{{ URL::to('post/detail\/').$post -> id }}" class="post__title" >{{ $post -> title }}</a>
                         <div class="post__tags">
                         <?php
                         $tags = $post -> tags;
-                        $utags = explode(',', $tags) ?>
+                        $utags = explode(',', $tags);
+                        $comments = App\Comment::where('commentable_id', $post -> id) -> count();
+                        ?>
                         @foreach($utags as $item)
                             <span>{{'#'.$item}}</span>
                         @endforeach
@@ -84,7 +86,7 @@
                         <div class="post__exceprt">{{ Str::limit($post -> excerpt,100) }}</div>
                         <div class="post__feature">
                             <a href="{{ URL::to('all/posts/cate\/').$post -> category_id }}" class="icon__item"><img class="icon" src="{{ asset('imgs/icon_folders.svg') }}" alt="Icons">{{ $post -> name}}</a>
-                            <a href="#" class="icon__item"><img class="icon" src="{{ asset('imgs/icon_comments.svg') }}" alt="Icons">100</a>
+                            <a href="#" class="icon__item"><img class="icon" src="{{ asset('imgs/icon_comments.svg') }}" alt="Icons">{{$comments}}</a>
                         </div>
                     </div>
                     @endforeach
@@ -105,7 +107,7 @@
                     </br>
                     I'll make your ideas come true.
                 </div>
-                <form class="form__contact" action="" method="POST">
+                <form class="form__contact" action="mailto:nhiltb3994@gmail.com" method="POST" enctype="text/plain">
                     <div class="form-group">
                         <input id="contact_id" class="form__input-field" type="text" name="name" placeholder="Name">
                         <label for="contact_id">Name</label>

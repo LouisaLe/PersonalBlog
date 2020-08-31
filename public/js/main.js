@@ -43,7 +43,8 @@ let bgHome = document.querySelector(".section__home");
 let bgAbout = document.querySelector(".section__about");
 let bgBlog = document.querySelector(".section__blogs");
 let bgContact = document.querySelector(".section__contact");
-let contactOffsetY = bgContact.offsetTop;
+let toggleBtn = document.querySelector(".mobile-trigger__nav-side-bar");
+// let contactOffsetY = bgContact.offsetTop;
 
 window.addEventListener("scroll", function () {
     if (isFloatMenu && window.scrollY < 80) {
@@ -79,20 +80,25 @@ function scrollToSection(id) {
     },500);
 }
 
-bgAbout.addEventListener('click', (e) => {
+bgAbout != null ? bgAbout.addEventListener('click', (e) => {
     let id = e.target.id;
     scrollToSection(id);
-});
+}) : '';
 
-bgBlog.addEventListener('click', (e) =>{
+bgBlog != null ? bgBlog.addEventListener('click', (e) =>{
     let id = e.target.id;
     scrollToSection(id);
-});
+}) : '';
 
-bgContact.addEventListener('click', (e) => {
+bgContact != null ? bgContact.addEventListener('click', (e) => {
     let id = e.target.id;
     scrollToSection(id);
-})
+}) : '';
+
+toggleBtn != null ? toggleBtn.addEventListener('click', (e) => {
+    console.log(e);
+    document.querySelector('.section__posts--all').classList.toggle('active');
+}) : '';
 
 
 // extension for triggering event when window scroll has stopped

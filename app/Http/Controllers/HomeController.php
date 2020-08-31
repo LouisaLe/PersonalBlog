@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use DB;
 use App\Post;
+use App\Comment;
 
 class HomeController extends Controller
 {
@@ -33,25 +34,28 @@ class HomeController extends Controller
     }
 
     public function postDetail($id) {
+        $posts = DB::table('posts') -> get();
         $post = Post::find($id);
         $category = DB::table('categories') -> where('id', $post -> category_id) -> first();
 
-        return view('detail_post', compact(['post', 'category']));
+        return view('detail_post', compact(['post', 'category', 'posts']));
     }
 
     public function allPost() {
         $posts = DB::table('posts')
         -> join('categories', 'posts.category_id', 'categories.id')
-        -> select('posts.*', 'categories.name') -> get();
+        -> select('posts.*', 'categories.name') -> paginate(10);
 
         $cats = DB::table('categories') -> get();
 
         return view('all_post', compact(['posts','cats']));
     }
 
+    
+
 
     public function getAllPostsByCategory($category_id) {
-        $posts = DB::table('posts') -> where('category_id', $category_id) -> get();
+        $posts = DB::table('posts') -> where('category_id', $category_id) -> paginate(10);
         $category_name = DB::table('categories') -> where('id', $category_id) -> first() -> name;
         return view('all_cate_posts', compact(['posts', 'category_name']));
     }
