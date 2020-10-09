@@ -3,12 +3,6 @@ $(document).ready(function () {
     $("#dtBasicExample").DataTable();
     $(".dataTables_length").addClass("bs-select");
 
-    // Init summer note
-    $("#summernote").summernote({
-        'height': 150
-    });
-    // End summer note
-
     $('.btn-cancel').on('click', function(){
         if ($('.section_toggle').hasClass('active')) {
             $('.section_toggle').removeClass('active');

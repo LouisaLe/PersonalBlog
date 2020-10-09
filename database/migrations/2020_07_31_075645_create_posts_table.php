@@ -17,7 +17,7 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->integer('category_id');
             $table->string('title');
-            $table->text('excerpt') -> nullable();
+            $table->text('url');
             $table->text('detail');
             $table->string('tags') -> nullable(); 
             $table->string('slug');

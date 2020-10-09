@@ -111,7 +111,7 @@ class AdminController extends Controller
         $data = array();
         $data['category_id'] = $request -> category_id;
         $data['title'] = $request -> title;
-        $data['excerpt'] = $request -> excerpt;
+        $data['url'] = $request -> url;
         $data['detail'] = $request -> detail;
         $data['tags'] = $request -> tags;
         $data['slug'] = Str::slug($request -> title,'-');
@@ -145,7 +145,7 @@ class AdminController extends Controller
         $data = array();
         $data['category_id'] = $request -> category_id;
         $data['title'] = $request -> title;
-        $data['excerpt'] = $request -> excerpt;
+        $data['url'] = $request -> url;
         $data['detail'] = $request -> detail;
         $data['tags'] = $request -> tags;
         $data['slug'] = Str::slug($request -> title,'-');

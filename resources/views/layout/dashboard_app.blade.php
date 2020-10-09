@@ -15,11 +15,21 @@
     <link rel="stylesheet" href="{{ asset('lib/css/sweetalert2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('lib/css/bootstrap-tagsinput.css') }}">
     <link rel="stylesheet" href="{{ asset('lib/css/toastr.css') }}">
-    <link rel="stylesheet" href="{{ asset('lib/css/summernote-bs4.min.css') }}">
+    <!-- include codemirror (codemirror.css, codemirror.js, xml.js, formatting.js) -->
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.css">
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/theme/monokai.css">
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/mode/xml/xml.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/2.36.0/formatting.js"></script>
+    <!-- <link rel="stylesheet" href="{{ asset('lib/css/summernote-bs4.min.css') }}"> -->
+    <link rel="stylesheet"
+      href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.0/build/styles/default.min.css">
     </link>
     <!-- <link rel="stylesheet" href="{{ asset('css/style.css') }}"></link> -->
     <link rel="stylesheet" href="{{ asset('../resources/sass/app.css') }}">
     </link>
+    <!-- Include stylesheet -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 </head>
 
 <body>
@@ -81,10 +91,12 @@
     <script src="{{ asset('lib/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('lib/js/mdb.min.js') }}"></script>
     <script src="{{ asset('lib/js/datatables.min.js') }}"></script>
-    <script src="{{ asset('lib/js/summernote-bs4.min.js') }}"></script>
+    <!-- <script src="{{ asset('lib/js/summernote-bs4.min.js') }}"></script> -->
     <script src="{{ asset('lib/js/sweetalert2.all.min.js') }}"></script>
     <script src="{{ asset('lib/js/toastr.min.js') }}"></script>
     <script src="{{ asset('lib/js/bootstrap-tagsinput.min.js') }}"></script>
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.0/build/highlight.min.js"></script>
+
     <script src="{{ asset('js/main-be.js') }}" defer></script>
 
     <script>
@@ -109,6 +121,9 @@
             }
         @endif
 </script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+   
 </body>
 
 </html>

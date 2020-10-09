@@ -17,8 +17,8 @@
             </div><!-- col-4 -->
             <div class="col-lg-12">
                 <div class="form-group">
-                    <label class="form-control-label">Excerpt: <span class="tx-danger">*</span></label>
-                    <textarea class="form-control" type="text" name="excerpt">{{ $post -> excerpt }}</textarea>
+                    <label class="form-control-label">Post URL: <span class="tx-danger">*</span></label>
+                    <input class="form-control" type="text" name="url">{{ $post -> url }}</input>
                 </div>
             </div><!-- col-4 -->
             <div class="col-lg-12">

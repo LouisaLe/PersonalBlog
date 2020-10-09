@@ -44,7 +44,7 @@
         @endguest
 
             <div class="form-group">
-                <label for="reply_comment">Bình luận:<span class="madatory_star">*</span></label>
+                <label for="reply_comment">Bình luận của bạn:<span class="madatory_star">*</span></label>
                 <textarea class="form-control" id="reply_comment" rows="3" name="reply_comment" required></textarea>
                 @error('reply_comment')
                 <div class="alert alert-danger">{{ $message }}</div>
