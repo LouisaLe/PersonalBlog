@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Http\Request;
 use DB;
 use App\Post;
 use App\Comment;
+use Mail;
+
 
 class HomeController extends Controller
 {
@@ -59,5 +62,25 @@ class HomeController extends Controller
         $category_name = DB::table('categories') -> where('id', $category_id) -> first() -> name;
         return view('all_cate_posts', compact(['posts', 'category_name']));
     }
+
+    public function contactViaEmail(Request $request) {
+
+        $this->validate($request, ['name' => 'required', 'email' => 'required|email', 'message' => 'required|min:20']);
+
+        $data = ['name' => $request->get('name') , 'email' => $request->get('email') , 'messageBody' => $request->get('message')];
+
+        Mail::send('mail', $data, function ($message) use ($data)
+        {
+            $message->from($data['email'], $data['name']);
+            $message->to('nhiltb3994@gmail.com', 'Admin')
+                ->subject('Contact From Personal Blog');
+        });
+
+        return redirect()
+            ->back()
+            ->with('success', 'Thank you for your contact! I will reply you soon.');
+    }
     
 }
+
+

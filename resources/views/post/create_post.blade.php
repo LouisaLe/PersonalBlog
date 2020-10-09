@@ -24,8 +24,10 @@
             </div><!-- col-4 -->
             <div class="col-lg-12">
                 <div class="form-group">
-                    <label class="form-control-label">Post Details: <span class="tx-danger">*</span></label>
-                    <textarea id="summernote" class="form-control" name="detail">Hello Summernote</textarea>
+                    <!-- <label class="form-control-label">Post Details: <span class="tx-danger">*</span></label> -->
+                    <!-- <textarea id="summernote" class="form-control" name="detail">Hello Summernote</textarea> -->
+                    <label class="form-control-label">Post Description: <span class="tx-danger">*</span></label>
+                    <textarea class="form-control" type="text" name="detail" placeholder="Enter Post Description"></textarea>
                 </div>
             </div><!-- col-4 -->
 
@@ -43,7 +45,7 @@
             <div class="col-lg-4">
                 <div class="form-group">
                     <label class="form-control-label">Tags: <span class="tx-danger">*</span></label>
-                    <input class="form-control" type="text" name="tags" value="" data-role="tagsinput">
+                    <input class="form-control" type="text" name="tags" value="" data-role="tagsinput" placeholder="Enter tags">
                 </div>
             </div><!-- col-4 -->
 

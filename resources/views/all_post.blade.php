@@ -10,12 +10,14 @@
     <h1 class="section__title">
         All Post
     </h1>
-    <div class="bread-cum">
-        <a href="{{ route('home') }}">Home &#8811;</a>
-        <a href="" class="active">Posts</a>
-    </div>
+    
     <div class="section__posts--all">
+       
         <div class="section__post-content">
+            <div class="bread-cum">
+                <a href="{{ route('home') }}">Home &#8811;</a>
+                <a href="" class="active">Posts</a>
+            </div>
             <div class="section__post-content-border">
                 @foreach($posts as $post)
                 <div class="post__item">
@@ -77,4 +79,6 @@
     </div>
     </div>
 </div>
+
+@endsection
 

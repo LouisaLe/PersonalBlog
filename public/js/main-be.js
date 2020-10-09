@@ -4,9 +4,24 @@ $(document).ready(function () {
     $(".dataTables_length").addClass("bs-select");
 
     // Init summer note
-    $("#summernote").summernote({
-        'height': 150
-    });
+    // $("#summernote").summernote({
+    //     'height': 150,
+    //     codemirror: { // codemirror options
+    //      theme: 'monokai'
+    //     },
+    //     callbacks: {
+    //         onPaste: function (e) {
+    //         var bufferText = ((e.originalEvent || e).clipboardData || window.clipboardData).getData('text/html');
+    //         e.preventDefault();
+    //         var div = $('<div />');
+    //         div.append(bufferText);
+    //         div.find('*').removeAttr('style');
+    //         setTimeout(function () {
+    //             document.execCommand('insertHtml', false, div.html());
+    //         }, 10);
+    //     }
+    // }
+    // });
     // End summer note
 
     $('.btn-cancel').on('click', function(){

@@ -7,11 +7,12 @@
 @include('layout.menu-all-posts')
 
 <div class="all--post section__wrapper">
+    
+    <div class="section__posts--all">
+    <div class="post__container">
     <h1 class="section__title">
         {{ $post -> title}}
     </h1>
-    <div class="section__posts--all">
-    <div class="post__container">
         <div class="inline">
             <div class="bread-cum">
                 <a href="{{ route('home') }}">Home &#8811;</a>
@@ -57,7 +58,7 @@
             @endguest
 
             <div class="form-group">
-                <label for="comment">Bình luận:<span class="madatory_star">*</span></label>
+                <label for="comment">Bình luận của bạn:<span class="madatory_star">*</span></label>
                 <textarea class="form-control" id="comment" rows="3" name="comment" required></textarea>
                 <input type="hidden" name="post_id" value="{{$post -> id}}">
                 @error('comment')
@@ -101,4 +102,4 @@
     </div>
     </div>
 </div>
-
+@endsection

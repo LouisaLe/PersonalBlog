@@ -24,9 +24,8 @@
             </div><!-- col-4 -->
             <div class="col-lg-12">
                 <div class="form-group">
-                    <label class="form-control-label">Post Details: <span class="tx-danger">*</span></label>
-                    <textarea id="summernote" class="form-control" name="detail">Hello Summernote</textarea>
-                </div>
+                    <label class="form-control-label">Post Description: <span class="tx-danger">*</span></label>
+                    <textarea class="form-control" type="text" name="detail" placeholder="Enter Post Description"></textarea>
             </div><!-- col-4 -->
 
             <div class="col-lg-4">

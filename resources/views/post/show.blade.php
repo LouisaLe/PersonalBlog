@@ -41,7 +41,7 @@
                     @endguest
 
                     <div class="form-group">
-                        <label for="comment">Bình luận:<span class="madatory_star">*</span></label>
+                        <label for="comment">Bình luận của bạn:<span class="madatory_star">*</span></label>
                         <textarea class="form-control" id="comment" rows="3" name="comment" required></textarea>
                         <input type="hidden" name="post_id" value="{{$post -> id}}">
                         @error('comment')

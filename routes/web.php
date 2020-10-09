@@ -51,6 +51,10 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 Route::post('add/comment', 'CommentController@addComment') -> name('add.comment');
 Route::post('add/reply', 'CommentController@addReply') -> name('add.reply');
 
+// contact
+
+Route::post('contact', 'HomeController@contactViaEmail') -> name('contact');
+
 // front end
 
 Route::get('post/detail/{id}', 'HomeController@postDetail')->name('post.detail');

@@ -28,6 +28,12 @@ a:hover {
   display: none;
 }
 
+.alert-success {
+  margin: 0;
+  margin-top: 30px;
+  text-align: center;
+}
+
 .note {
   font-size: 16px;
   font-style: italic;
@@ -58,6 +64,10 @@ a:hover {
 
 .logo {
   margin-right: auto;
+}
+
+.old-text {
+  text-decoration: line-through;
 }
 
 .page__wrapper {
@@ -118,7 +128,7 @@ a:hover {
 }
 
 .menu.fixed.toggle {
-  padding: 15px 40px 15px 15px;
+  padding: 15px 60px 15px 15px;
   background-color: #fb3;
   color: #ffffff;
 }
@@ -142,10 +152,9 @@ a:hover {
 }
 
 .bread-cum {
-  width: 90%;
+  margin-right: auto;
   color: #bbbbbb;
   padding: 15px 0;
-  margin: 0 auto;
 }
 
 .bread-cum a:hover {
@@ -161,6 +170,8 @@ h1.section__title {
   -webkit-text-fill-color: transparent;
   -moz-background-clip: text;
   -moz-text-fill-color: transparent;
+  margin-bottom: 20px;
+  line-height: 1.2;
 }
 
 .section {
@@ -257,7 +268,7 @@ h1.section__title {
 }
 
 .section__title {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   line-height: 3.5rem;
   margin-bottom: 60px;
   text-align: center;
@@ -271,6 +282,11 @@ h1.section__title {
 
 .section__blogs::before {
   background-color: #000000;
+}
+
+.section__blogs .section__title,
+.section__blogs .section__tags {
+  margin-bottom: 25px;
 }
 
 .section__blogs .tags {
@@ -406,6 +422,15 @@ h1.section__title {
   padding: 20px;
 }
 
+#scrollIndicator {
+  position: fixed;
+  width: auto;
+  height: 5px;
+  background: -webkit-gradient(linear, left top, right top, from(#e52e71), to(#ff8a00));
+  background: linear-gradient(90deg, #e52e71, #ff8a00);
+  z-index: 99999;
+}
+
 .nav-side__wrapper {
   width: 100%;
   place-self: start;
@@ -430,6 +455,10 @@ h1.section__title {
   width: 80px;
   background: -webkit-gradient(linear, left top, right top, from(#ff8a00), to(#e52e71));
   background: linear-gradient(90deg, #ff8a00, #e52e71);
+}
+
+.nav-side__label .tags {
+  margin: 4px 0;
 }
 
 .post__item {
@@ -693,8 +722,8 @@ h1.section__title {
 .btn-top {
   position: fixed;
   z-index: 999;
-  bottom: 50;
-  right: 10;
+  bottom: 50px;
+  right: 10px;
   border: none;
   background-color: #fb3;
   border-radius: 50%;
@@ -763,6 +792,10 @@ h1.section__title {
   color: #cf211b;
 }
 
+.comment__block {
+  margin-top: 10px;
+}
+
 .comment__line {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -770,6 +803,10 @@ h1.section__title {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.comment__line:first-child {
+  margin-bottom: 5px;
 }
 
 .comment__avatar {
@@ -896,19 +933,41 @@ h1.section__title {
   display: none;
 }
 
-.post-detail__wrapper * {
+.post-detail__wrapper p, 
+.post-detail__wrapper span {
   background-color: transparent !important;
   color: #ffffff !important;
   font-family: inherit !important;
   font-size: inherit !important;
 }
 
-.cat {
-  margin-bottom: 15px;
+.post-detail__wrapper pre code span {
+  color: #ff8a00 !important;
 }
 
-.inline .bread-cum {
-  width: 100%;
+code.tag {
+  background-color: #ffffff;
+  color: #ff8a00 !important;
+  padding: 2px 3px;
+}
+
+.post-detail__wrapper {
+  margin-bottom: 30px;
+}
+
+.cat span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.inline {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 30px;
 }
 
 @media (min-width: 993px) and (max-width: 1200px) {
@@ -938,16 +997,21 @@ h1.section__title {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
   }
-  .bread-cum {
-    width: 90%;
-  }
 }
 
 @media (max-width: 992px) {
+  .inline {
+    display: block;
+  }
   .section__tags {
     -webkit-box-pack: initial;
         -ms-flex-pack: initial;
             justify-content: initial;
+  }
+  .post__feature {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
   .post__feature a {
     display: block;
@@ -1052,6 +1116,7 @@ h1.section__title {
             transform: rotate(-90deg);
   }
   .section__posts--all {
+    grid-column-gap: initial;
     padding-left: 30px;
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;

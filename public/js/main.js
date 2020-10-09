@@ -33,9 +33,6 @@ $(document).ready(function () {
     });
 });
 
-// new fullpage(".section", {
-//     autoScrolling: true
-// });
 
 let isFloatMenu = false;
 let toggleMenuItem = document.querySelector('.menu__item--fixed');
@@ -45,6 +42,7 @@ let bgBlog = document.querySelector(".section__blogs");
 let bgContact = document.querySelector(".section__contact");
 let toggleBtn = document.querySelector(".mobile-trigger__nav-side-bar");
 // let contactOffsetY = bgContact.offsetTop;
+let scrollIndicator = document.getElementById('scrollIndicator');
 
 window.addEventListener("scroll", function () {
     if (isFloatMenu && window.scrollY < 80) {
@@ -63,16 +61,16 @@ window.addEventListener("scroll", function () {
         $("#top").removeClass("hidden");
     }
 
-    let backgroundPositionY = window.pageYOffset;
+    setHeightIndicator();
 
-    
-    // let puppy = document.querySelector(".puppy");
-    // bgHome.style.backgroundPosition = `${
-    //     20 - backgroundPositionY / 100
-    // }% center`;
-    // puppy.style.right = `${40 + backgroundPositionY * 0.2}px`;
-    // bgContact.style.transform = `scale(${1 + (backgroundPositionY-contactOffsetY)/100})`
 });
+
+function setHeightIndicator() {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    scrollIndicator.style.width = scrolled + '%';
+}
 
 function scrollToSection(id) {
     $("html, body").animate({
@@ -99,25 +97,6 @@ toggleBtn != null ? toggleBtn.addEventListener('click', (e) => {
     console.log(e);
     document.querySelector('.section__posts--all').classList.toggle('active');
 }) : '';
-
-
-// extension for triggering event when window scroll has stopped
-// $.fn.scrollEnd = function(callback, timeout) {          
-//     $(this).scroll(function(){
-//       var $this = $(this);
-//       if ($this.data('scrollTimeout')) {
-//         clearTimeout($this.data('scrollTimeout'));
-//       }
-//       $this.data('scrollTimeout', setTimeout(callback,timeout));
-//     });
-//   };
-
-// function srcollSectionTop(offset) {
-//     $(window).scrollEnd(function(){
-//             $("html, body").animate({ scrollTop: offset }, 500);
-//     }, 600);
-        
-// }
 
 // using intersection observer
 
